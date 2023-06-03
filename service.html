@@ -1,0 +1,599 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.428571; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-size-adjust: inherit; font-kerning: inherit; font-variant-alternates: inherit; font-variant-ligatures: inherit; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-variant-position: inherit; font-feature-settings: inherit; font-optical-sizing: inherit; font-variation-settings: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right-width: 0px; border-right-style: none; border-right-color: currentcolor; background-color: inherit; }
+.CodeMirror-linenumber { -webkit-user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: medium; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: medium !important; border-style: none !important; border-color: currentcolor !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom-width: 0px; border-bottom-style: none; border-bottom-color: currentcolor; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: medium; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.428571rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left-width: 28px; border-left-style: solid; border-left-color: transparent; border-right-width: 28px; border-right-style: solid; border-right-color: transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right-width: 8px; border-right-style: solid; border-right-color: transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+ @media print { @page {margin: 0 0 0 0;} body.typora-export {padding-left: 0; padding-right: 0;} #write {padding:0;}}
+</style><title>NetSeed Terms of Service</title>
+</head>
+<body class='typora-export'><div class='typora-export-content'>
+<div id='write'  class=''><h2 id='netseed-terms-of-service'><span>NetSeed Terms of Service</span></h2><p><span>Effective Date: June 10, 2023</span></p><p><span>Welcome to NetSeed products and services!</span></p><p><span>By using NetSeed products and services, you confirm that you have read and accepted the following terms. Please read them carefully.</span></p><p><span>By registering, creating an account, clicking &quot;I agree&quot; or &quot;I accept&quot; buttons, using NetSeed products, or accessing the website, you agree to be bound by these terms and all applicable attachments and appendices (&quot;Agreement&quot;). Unless otherwise specified, such additional terms and conditions are hereby incorporated into the Agreement governing your use of the NetSeed Solution.</span></p><p><span>In the event of a conflict, the actual signed agreement shall prevail. If NetSeed and the customer have entered into a service agreement to govern the provision of the NetSeed Solution and it covers the same subject matter as these terms, these terms will apply solely to the use of the website or NetSeed Solution and will not be affected by the service agreement entered into with the customer.</span></p><p><span>We may modify these terms or any additional terms and conditions related to the website or NetSeed Solution from time to time. We will post revised terms with a &quot;Last Updated&quot; date on the service. If you continue to use the service after the revisions come into effect, it signifies your agreement to be bound by the revised terms. You agree that we are not liable to you or any third party for any modifications to these terms.</span></p><p><strong><span>By using the service, you represent and warrant that you have the legal capacity to enter into this binding agreement. If you use the service on behalf of someone else, you hereby represent and warrant to NetSeed that you have the authority to bind that person to this agreement.</span></strong></p><p>&nbsp;</p><h5 id='1-definitions'><strong><span>1. Definitions</span></strong></h5><p><span>The following capitalized terms used in this Agreement shall have the following meanings:</span></p><p><span>1.1. &quot;</span><strong><span>Affiliate</span></strong><span>&quot; means, with respect to a party, any company or other legal entity that is directly or indirectly controlled by or under common control with such party. For the purpose of this definition, &quot;control&quot; means the possession, direct or indirect, of the power to direct or cause the direction of the management and policies of a company or legal entity.</span></p><p><span>1.2. &quot;</span><strong><span>Customer Content</span></strong><span>&quot; means any data, information, content, records, and files, including personal data, that are encrypted from one client endpoint and transmitted to one or more other client endpoints.</span></p><p><span>1.3. &quot;</span><strong><span>Customer Data</span></strong><span>&quot; means any data, information, content, records, and files, including personal data, that are loaded, provided to the NetSeed Solution by the customer (or any authorized user), and accessed, transmitted, or inputted into the NetSeed Solution, including Customer Content.</span></p><p><span>1.4. &quot;</span><strong><span>Intellectual Property</span></strong><span>&quot; means, without limitation, the rights in patents, patent disclosures, patent applications (including utility, continuations, divisions, reissues, reexaminations, and patents issued thereon), inventions that are patentable, design rights, copyrights (including rights in computer software and any rights in printed arrangements, websites or software), whether registered or unregistered, and any application for registration or registration of any of the foregoing rights, trademarks, trade, business or domain names and email addresses, mask works, trade secrets, rights in inventions, proprietary know-how, moral rights, and any other similar or corresponding proprietary rights anywhere in the world, whether arising under statute, contract, license, or otherwise.</span></p><p><span>1.5. &quot;</span><strong><span>Licensed Users</span></strong><span>&quot; means the employees or other individuals authorized by the customer to access and use the NetSeed Solution.</span></p><p><span>1.6. &quot;</span><strong><span>NetSeed Platform</span></strong><span>&quot; means the NetSeed proprietary internet access service hosted and maintained by NetSeed, consisting of hardware, software, information, and hosting services, all provided by NetSeed to the customer under this Agreement.</span></p><p><span>1.7. &quot;</span><strong><span>NetSeed Client Software</span></strong><span>&quot; refers to the proprietary software developed by NetSeed that is installed on the client endpoints.</span></p><p><span>1.8. &quot;</span><strong><span>NetSeed Solution</span></strong><span>&quot; means the NetSeed Platform, NetSeed Client Software, and all associated documentation made available to the customer under this Agreement.</span></p><p>&nbsp;</p><h5 id='2-netseed-solution'><strong><span>2. NetSeed Solution</span></strong></h5><p><span>2.1. </span><strong><span>License of NetSeed Solution.</span></strong><span> Subject to the customer and its authorized users&#39; compliance with the terms and conditions of the agreement, NetSeed grants the customer and its authorized users a non-exclusive, non-transferable, and limited license to use the NetSeed Solution for the specified duration, including installing and running the NetSeed Client Software on the customer&#39;s devices solely for the purposes stated in the agreement. The customer&#39;s use of the NetSeed Solution will be subject to any restrictions described in the agreement and any accompanying documentation provided with the NetSeed Solution. This agreement governs the customer&#39;s use of the NetSeed Client Software, notwithstanding any end-user software license agreement that may be included with the download, installation, or use of the NetSeed Client Software.</span></p><p><span>2.2. </span><strong><span>Usage Restrictions.</span></strong><span> The customer acknowledges and agrees to be responsible for all use of the NetSeed Solution by authorized users. The customer shall ensure that all use of the NetSeed Solution by authorized users complies with the agreement and any guidelines and policies published and provided by NetSeed to the customer from time to time. Without limiting the generality of the foregoing, unless expressly permitted by the agreement, the customer shall not, and shall not allow others to: (a) copy the NetSeed Solution; (b) disassemble, reverse engineer, modify, translate, alter, or decompile the whole or any part of the NetSeed Solution or otherwise attempt to derive the source code of the NetSeed Solution; (c) create derivative works of the NetSeed Solution by adapting, modifying, translating, or creating derivative works based on it; (d) distribute, copy, rent, lease, sublicense, transfer, sell, or otherwise transfer the NetSeed Solution or any rights of the customer therein; (e) use the NetSeed Solution to create, collect, transmit, store, use, or process any content that violates any applicable laws or infringes or misappropriates any third-party intellectual property rights or other rights (including any moral rights, privacy rights, or publicity rights). The customer must erase or otherwise destroy any portion of the NetSeed Solution installed or included on any media before disposing of such media and, in any event, upon termination or expiration of the agreement. The customer shall not remove, alter, or conceal any such proprietary notices or legends.</span></p><p><span>2.3. </span><strong><span>Suspension of Access; Scheduled Downtime.</span></strong><span> NetSeed may, in its sole discretion, from time to time: (i) suspend customer&#39;s access to or use of the NetSeed Solution or any of its components without limiting any other rights or remedies available to it at law or in equity: (a) for routine maintenance; (b) due to events beyond its reasonable control; (c) if the customer or any authorized user breaches any term of this agreement, including, for greater certainty, any of the restrictions set forth in section 2.2 above; (d) to address any emergency security issues; (e) if required by government or regulatory authorities or due to changes in applicable laws; or (ii) modify or remove features and functionalities of the NetSeed Solution and may replace existing features or functionalities with new ones.</span></p><p>&nbsp;</p><h5 id='3-ownership'><strong><span>3. Ownership</span></strong></h5><p><span>3.1. </span><strong><span>Ownership of the Service.</span></strong><span> Between you and NetSeed, the service and all intellectual property rights therein or related thereto are and shall remain the exclusive property of NetSeed. Nothing in this agreement shall be interpreted as granting you any rights in the aforementioned except for the limited rights to use the service as provided under this agreement.</span></p><p><span>3.2. </span><strong><span>Customer Data.</span></strong><span> You retain all rights, ownership, and interests, including any intellectual property rights, in and to any customer data (including customer content and personal data). Subject to the NetSeed DPA, you grant NetSeed a non-exclusive, worldwide, royalty-free, irrevocable, fully paid-up right to: (a) transmit customer content through the NetSeed Solution; (b) access, collect, use, process, store, disclose, and transmit customer data for the purpose of (i) providing the NetSeed Solution, (ii) improving and enhancing the NetSeed Solution and its other products, and (iii) generating data, information, or other materials that are not identified as specifically relating to any individual or company (such data, information, and materials, &quot;Aggregated Data&quot;). Customer data shall not include Aggregated Data, which NetSeed may use, process, store, disclose, and transmit for any purpose without any restrictions or obligations to the customer. Customer confidential information includes customer data.</span></p><p><span>3.3. </span><strong><span>Feedback.</span></strong><span> You hereby assign to NetSeed all rights, ownership, and interests in and to any feedback, suggestions, ideas, improvements, and other comments (collectively, &quot;Feedback&quot;) that you provide to NetSeed in connection with the service. NetSeed shall have unrestricted rights to use and disclose the Feedback without any liability or obligation to you, and you acknowledge that any improvements, modifications, or changes resulting from your contributions to the service are the exclusive property of NetSeed.</span></p><p><span>3.4. </span><strong><span>Reserved Rights.</span></strong><span> Except for the limited rights or licenses granted to you by NetSeed under this agreement, NetSeed or its licensors reserve all rights, ownership, and interests, including all intellectual property rights, in and to: (i) the service, and (ii) any modifications, improvements, customizations, patches, bug fixes, updates, enhancements, aggregations, compilations, derivative works, translations, and adaptations of the foregoing.</span></p><p>&nbsp;</p><h5 id='4-user-accounts-and-responsibilities-of-licensed-users'><strong><span>4. User Accounts and Responsibilities of Licensed Users</span></strong></h5><p><span>4.1. </span><strong><span>Customer User Accounts.</span></strong><span> Upon the customer&#39;s request, NetSeed will: (a) issue one or more accounts (each, a &quot;</span><strong><span>User Account</span></strong><span>&quot;) to the customer for use by the customer and its licensed users, and (b) designate one or more customer user accounts as administrator accounts, enabling the customer to manage and administer certain functionalities of the NetSeed Solution. The customer shall ensure that licensed users only access the NetSeed Solution through their respective customer user accounts. The customer shall not permit any licensed user to share their customer user account with any other person. The customer shall promptly notify NetSeed of any actual or suspected unauthorized use of the NetSeed Solution. If NetSeed determines that a customer user account may have been used for unauthorized purposes, NetSeed reserves the right to suspend, disable, or replace the customer user account. The customer is responsible for ensuring that all licensed users are aware of and comply with the terms of the agreement. Any individual violation of the agreement shall be deemed a breach by the customer.</span></p><p><span>4.2. </span><strong><span>Usage Restrictions.</span></strong><span> NetSeed may impose certain user limitations or other usage restrictions. The customer&#39;s use of the NetSeed Solution is subject to the restrictions specified by NetSeed. User accounts may not be shared with another person or used by multiple licensed users simultaneously.</span></p><p>&nbsp;</p><h5 id='5-updates-to-netseed-client-software'><strong><span>5. Updates to NetSeed Client Software</span></strong></h5><p><span>NetSeed may, at its sole discretion, implement updates, upgrades, error fixes, patches, and other corrections (collectively referred to as &quot;Updates&quot;) to the NetSeed client software. All Updates will be considered part of the NetSeed client software, subject to the terms and conditions of the agreement. You must accept all Updates provided by NetSeed or on behalf of NetSeed. If you do not wish to install an Update, you should refrain from using the NetSeed client software after such Update is made available. NetSeed may require you to accept and install Updates as a condition of the granted license under the agreement. Updates may be installed automatically without any additional notice or obtaining any additional consent. By accepting this, you agree to these automatic Updates.</span></p><p>&nbsp;</p><h5 id='6-third-party-content-websites-or-services'><strong><span>6. Third-Party Content, Websites, or Services</span></strong></h5><p><span>The Service may provide links or access to third-party content, websites, services, or systems. NetSeed does not endorse any third-party content, websites, services, or systems, and makes no warranties regarding their quality, accuracy, reliability, completeness, availability, timeliness, non-infringement, merchantability, or fitness for any purpose. Third-party content, websites, services, or systems are beyond the control of NetSeed, and if you choose to access any such content, websites, services, or systems, you do so at your own risk. You acknowledge that you may be subject to terms and conditions applicable to third-party content, websites, services, or systems, and such terms may supersede any terms in the agreement regarding the use of such third-party content, websites, services, or systems.</span></p><h5 id='7-fees-and-payment'><strong><span>7. Fees and Payment</span></strong></h5><p><span>7.1. </span><em><span>Free Trial.</span></em><span> Upon request by the customer, NetSeed may provide a free trial of the NetSeed solution for a period as specified in writing by NetSeed. When the free trial period is nearing its end or has ended, NetSeed will notify the customer that the trial period is ending or has ended. The customer may choose to upgrade to a paid subscription. If the customer does not agree to continue using the NetSeed solution through a paid subscription as described herein, NetSeed will terminate the customer&#39;s access to the NetSeed solution.</span></p><p><span>7.2. </span><em><span>Fee Changes.</span></em><span> NetSeed reserves the right to change fees and impose new fees prior to the renewal term (including termination of usage rights for free trial customers), provided that NetSeed gives the customer at least 30 days&#39; advance notice.</span></p><p>&nbsp;</p><h5 id='8-disclaimer'><strong><span>8. Disclaimer</span></strong></h5><p><span>8.1. Except as expressly provided in the agreement, NetSeed does not warrant that the Service will be uninterrupted or error-free, or that all errors can or will be corrected. It also makes no warranties regarding the results that may be obtained from the use of the Service. The Service (or any part thereof) and any other products and services provided by NetSeed to you are provided on an &quot;as is&quot; and &quot;as available&quot; basis, without any representations, conditions, or warranties of any kind, whether express or implied, including any implied representations, conditions, or warranties of merchantability, fitness for a particular purpose, compatibility, ownership, non-infringement, security, reliability, completeness, quiet enjoyment, accuracy, quality, integration, or arising from trade usage or custom. NetSeed does not make any warranties with respect to any third-party software unless expressly stated in the agreement.</span></p><p><span>8.2. To the extent permitted by applicable law, NetSeed hereby disclaims all implied, collateral, or statutory representations, warranties, conditions, statements, and terms, whether written or oral, including any implied warranties or conditions of merchantability, satisfactory quality, fitness for a particular purpose or use, non-infringement, security, reliability, completeness, quiet enjoyment, accuracy, quality, integration, or arising from trade usage or custom. Unless expressly stated by applicable law, NetSeed explicitly disclaims any accuracy of data or information provided to the customer in connection with the customer&#39;s use of the Service (or any part thereof), or that the customer should or can rely on such data or information for any purpose.</span></p><h5 id='9-limitation-of-liability'><strong><span>9. Limitation of Liability</span></strong></h5><p><span>In no event shall NetSeed or its affiliates, or their respective directors, officers, employees, or agents be liable for any indirect, incidental, special, punitive, or consequential damages or any loss of data, revenue, profits, procurement costs, substitute goods or services, or business opportunities, arising out of or in connection with the Service. To the maximum extent permitted by applicable law, in no event shall NetSeed&#39;s total liability under the agreement, regardless of the cause of action or theory of liability, exceed the amount paid by the customer to NetSeed under the agreement in the one month preceding the date of the claim.</span></p><p><span>Certain jurisdictions do not allow the exclusion of certain warranties or the limitation or exclusion of liability for incidental or consequential damages. Therefore, some of the above limitations may not apply to you. If you are located in China, the above limitations apply to you.</span></p><p>&nbsp;</p><h5 id='10-term-and-termination'><strong><span>10. Term and Termination</span></strong></h5><p><span>10.1. The Service shall commence on the effective date of the agreement, and NetSeed may terminate the Service upon thirty (30) days&#39; prior notice at any time.</span></p><p><span>10.2. NetSeed may terminate the agreement related to the NetSeed Solution or any product associated therewith at any time for any reason, upon providing written notice to the customer at least thirty (30) days in advance, without any liability or penalty. NetSeed may also terminate your right to use the website at any time for any reason, with such termination becoming effective upon notice.</span></p><p><span>10.3. NetSeed may terminate the Service Agreement immediately if you fail to comply with any provision of the agreement. Upon any such termination, you must cease any further use of the Service. If you are dissatisfied with the Service at any time, your sole remedy is to discontinue the use of the Service.</span></p><h5 id='11-dispute-resolution'><strong><span>11. Dispute Resolution</span></strong></h5><p><span>Please read this section carefully as it may significantly affect your legal rights, including your right to bring a lawsuit in court.</span></p><p><span>11.1. </span><em><span>Initial Dispute Resolution.</span></em><span> In most cases, we can address any concerns you may have about the Service through our website. Our customer support department is available to promptly address and resolve most issues to your satisfaction. Both parties shall use reasonable efforts to resolve any disputes, claims, questions, or differences through this customer service process in good faith, which shall be a condition precedent to either party initiating litigation or arbitration.</span></p><p><span>11.2. </span><em><span>Binding Arbitration.</span></em><span> If the parties are unable to reach a mutually satisfactory resolution within thirty (30) days under the Initial Dispute Resolution provision, either party may initiate binding arbitration as the sole means to resolve the dispute, subject to the terms set forth.</span></p><p><span>11.3. </span><em><span>Venue.</span></em><span> If you are a resident of China, the arbitration shall be conducted at any reasonable venue convenient for you within the territory of China. For residents outside of China, the arbitration shall be initiated in Shenzhen, People&#39;s Republic of China, and you and NetSeed agree to submit to the jurisdiction of the Nanshan District People&#39;s Court in Shenzhen, to enforce arbitration, stay pending arbitration, or confirm, modify, vacate, or enter judgment upon an award rendered by the arbitrator.</span></p><p><span>For any dispute not subject to arbitration, you and NetSeed agree to submit to the jurisdiction of the Nanshan District People&#39;s Court in Shenzhen. You further agree to accept service of process by mail and hereby waive any and all jurisdictional and venue defenses otherwise available.</span></p><p><span>The terms and relations between you and NetSeed shall be governed by the laws of Shenzhen, without regard to its conflict of laws provisions.</span></p><h5 id='12-contact-us'><strong><span>12. Contact Us</span></strong></h5><p><span>Customers may contact us in writing at the address provided above or by sending an email to </span><a href='mailto:info@NetSeed.com' target='_blank' class='url'>info@NetSeed.com</a><span> for any notices, questions, or issues related to the NetSeed products.</span></p><p><span>All disputes related to NetSeed products and this statement shall be subject to the jurisdiction of the Nanshan District People&#39;s Court in Shenzhen.</span></p></div></div>
+</body>
+</html>
