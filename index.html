@@ -1,95 +1,78 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-<meta charset="UTF-8">
-<title>下载页面</title>
-<link href="css/base.css" rel="stylesheet">
-<link href="css/phone2.css" rel="stylesheet">
+    <title>内部测试日志记录</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        .navbar-nav {
+            margin: 0 auto;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            color: #555;
+        }
+        h2, h3, h4 {
+            font-weight: normal;
+        }
+        .update {
+            border-bottom: 1px solid #eee;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+        }
+        .update:last-child {
+            border-bottom: none;
+        }
+    </style>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://ns.hj.io">后台管理</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://hjcore.github.io/files/download.html">测试包</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://ns.io">官网</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
-<div class="open-tips">
-	<img src="image/open-tips.png">
-</div>
-<center>
-	<div style="font-size: 22px;color: white;">NSIO</div>
-	<div class="download">
-		<a class="android"></a>
-		<a class="ios"></a>
-		<a class="windows">Windows</a>
-		<a class="mac">Mac</a>
-	</div>
-</center>
+    <div class="container mt-4">
+        <h2>日志记录</h2>
+        <div class="update">
+           <hr>
+            <h5>版本号</h5>
+            <ul>
+                <li>Android: V0.8.0（21）</li>
+                <li>iOS: V0.8.0（21）</li>
+                <li>Windows: V0.8.0（21）</li>
+                <li>MacOS: V0.8.0（21）</li>
+            </ul>
+            <h5>更新日志</h5>
+            <ul>
+                <li>优化底层sdk</li>
+                <li>修复magic dns bug</li>
+                <li>修复手动签名bug</li>
+                <li>其它</li>
+            </ul>
+            <h5>更新时间</h5>
+            <ul>
+                <li>2023-5-6 12:00:00</li>
 
-<script type="text/javascript">
-
-//安卓下载地址 
-var androidUrl = 'https://hjcore.github.io/files/nsio.apk';
-//IOS下载地址
-var iosUrl = 'itms-services://?action=download-manifest&url=https://hjcore.github.io/files/nsio.plist';
-var windowsUrl = "https://hjcore.github.io/files/nsio.exe";
-var macUrl = "https://hjcore.github.io/files/nsio-mac.zip";
-var openTips = document.querySelector('.open-tips');
-var androidBtn = document.querySelector(".download .android");
-var IOSBtn = document.querySelector(".download .ios");
-var windowsBtn = document.querySelector(".download .windows");
-var macBtn = document.querySelector(".download .mac");
-//显示按钮
-checkos();
-//按钮点击事件
-androidBtn.addEventListener('touchstart',function(){
-	if(isWeChat()){
-		openTips.style.display = 'block';
-	}else{
-		location.href = androidUrl;
-	}
-})
-IOSBtn.addEventListener('touchstart',function(){
-	if(isWeChat()){
-		openTips.style.display = 'block';
-	}else{
-		location.href = iosUrl;
-	}
-})
-windowsBtn.addEventListener('touchstart',function(){
-	if(isWeChat()){
-		openTips.style.display = 'block';
-	}else{
-		location.href = windowsUrl;
-	}
-})
-macBtn.addEventListener('touchstart',function(){
-	if(isWeChat()){
-		openTips.style.display = 'block';
-	}else{
-		location.href = macUrl;
-	}
-})
-
-function checkos(){
-	var u = navigator.userAgent;
-	var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
-	var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-	if(isAndroid){
-		IOSBtn.style.display = "none";
-		return;
-	}else if(isiOS){
-		androidBtn.style.display = "none";
-		return;
-	}else{
-		return;
-	}
-}
-
-function isWeChat(){
-	var ua = window.navigator.userAgent.toLowerCase();
-	if(ua.match(/MicroMessenger/i) == 'micromessenger'){
-		return true;
-	}else{
-		return false;
-	}
-}
-</script>
+            </ul>
+            <hr>
+        </div>
+    </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </html>
