@@ -1,56 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>内部测试网页</title>
+    <title>内部测试日志记录</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
+        .navbar-nav {
+            margin: 0 auto;
+        }
         body {
             font-family: Arial, sans-serif;
+            color: #555;
         }
-        h2 {
-            color: #333;
+        h2, h3, h4 {
+            font-weight: normal;
         }
-        a {
-            color: #0088cc;
+        .update {
+            border-bottom: 1px solid #eee;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
         }
-        #test-content {
-            display: none;
-            margin-top: 20px;
+        .update:last-child {
+            border-bottom: none;
         }
     </style>
 </head>
 <body>
-    <h1>内部测试网页</h1>
-    <h2>通用：</h2>
-    <ul>
-        <li>后台地址：<a href="https://ns.hj.io">https://ns.hj.io</a></li>
-        <li>测试包下载地址：<a href="https://public.liacn.com/public/download.html">https://public.liacn.com/public/download.html</a></li>
-        <li>测试方法：<a href="#" id="test-methods">点击查看</a></li>
-        <li>官网地址：<a href="https://ns.io">https://ns.io</a></li>
-    </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://ns.hj.io">后台管理</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://public.liacn.com/public/download.html">测试包</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://ns.io">官网</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
-    <h2>日志记录：</h2>
-    <h3>V0.8.0(21)版本发布，更新日志：</h3>
-    <ul>
-        <li>优化底层sdk</li>
-        <li>修复magic dns bug</li>
-        <li>修复手动签名bug</li>
-        <li>其它。</li>
-    </ul>
-
-    <div id="test-content"></div>
-
-    <script>
-        document.getElementById('test-methods').addEventListener('click', function(event) {
-            event.preventDefault();
-
-            fetch('./test-doc.md')
-            .then(response => response.text())
-            .then(text => {
-                document.getElementById('test-content').innerHTML = marked(text);
-                document.getElementById('test-content').style.display = 'block';
-            });
-        });
-    </script>
+    <div class="container mt-4">
+        <h2>日志记录：</h2>
+        <div class="update">
+           <hr>
+            <h5>版本号</h5>
+            <ul>
+                <li>Android: V0.8.0（21）</li>
+                <li>iOS: V0.8.0（21）</li>
+                <li>Windows: V0.8.0（21）</li>
+                <li>MacOS: V0.8.0（21）</li>
+            </ul>
+            <h5>更新日志：</h5>
+            <ul>
+                <li>优化底层sdk</li>
+                <li>修复magic dns bug</li>
+                <li>修复手动签名bug</li>
+                <li>其它。</li>
+            </ul>
+            <h5>更新时间</h5>
+            <ul>
+                <li>2023-5-6 12:00:00</li>
+            </ul>
+            <hr>
+        </div>
+    </div>
 </body>
 </html>
