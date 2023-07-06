@@ -15,13 +15,14 @@
 <center>
 	<div style="font-size: 22px;color: white;">NSIO</div>
 	<div class="download">
-		<a class="android"></a>
-		<a class="ios"></a>
-		<a class="windows">Windows</a>
-		<a class="mac">Mac</a>
+		<a class="android" onclick="androidDownload()"></a>
+		<a class="ios" onclick="iosDownload()"></a>
+		<a class="windows" onclick="windowsDownload()">Windows</a>
+		<a class="mac" onclick="macDownload()">Mac</a>
 	</div>
 </center>
 
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script type="text/javascript">
 
 //安卓下载地址 
@@ -31,41 +32,38 @@ var iosUrl = 'itms-services://?action=download-manifest&url=https://hjcore.githu
 var windowsUrl = "https://hjcore.github.io/files/nsio.exe";
 var macUrl = "https://hjcore.github.io/files/nsio-mac.zip";
 var openTips = document.querySelector('.open-tips');
-var androidBtn = document.querySelector(".download .android");
-var IOSBtn = document.querySelector(".download .ios");
-var windowsBtn = document.querySelector(".download .windows");
-var macBtn = document.querySelector(".download .mac");
+
 //显示按钮
 // checkos();
 //按钮点击事件
-androidBtn.addEventListener('touchstart',function(){
+function androidDownload(){
 	if(isWeChat()){
 		openTips.style.display = 'block';
 	}else{
 		location.href = androidUrl;
 	}
-})
-IOSBtn.addEventListener('touchstart',function(){
+}
+function iosDownload(){
 	if(isWeChat()){
 		openTips.style.display = 'block';
 	}else{
 		location.href = iosUrl;
 	}
-})
-windowsBtn.addEventListener('touchstart',function(){
+}
+function windowsDownload(){
 	if(isWeChat()){
 		openTips.style.display = 'block';
 	}else{
 		location.href = windowsUrl;
 	}
-})
-macBtn.addEventListener('touchstart',function(){
+}
+function macDownload(){
 	if(isWeChat()){
 		openTips.style.display = 'block';
 	}else{
 		location.href = macUrl;
 	}
-})
+}
 
 function checkos(){
 	var u = navigator.userAgent;
