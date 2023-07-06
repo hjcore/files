@@ -37,32 +37,16 @@ var openTips = document.querySelector('.open-tips');
 // checkos();
 //按钮点击事件
 function androidDownload(){
-	if(isWeChat()){
-		openTips.style.display = 'block';
-	}else{
-		location.href = androidUrl;
-	}
+	location.href = androidUrl;
 }
 function iosDownload(){
-	if(isWeChat()){
-		openTips.style.display = 'block';
-	}else{
-		location.href = iosUrl;
-	}
+	location.href = iosUrl;
 }
 function windowsDownload(){
-	if(isWeChat()){
-		openTips.style.display = 'block';
-	}else{
-		location.href = windowsUrl;
-	}
+	location.href = windowsUrl;
 }
 function macDownload(){
-	if(isWeChat()){
-		openTips.style.display = 'block';
-	}else{
-		location.href = macUrl;
-	}
+	location.href = macUrl;
 }
 
 function checkos(){
