@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>内部测试网页</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h2 {
+            color: #333;
+        }
+        a {
+            color: #0088cc;
+        }
+        #test-content {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>内部测试网页</h1>
+    <h2>通用：</h2>
+    <ul>
+        <li>后台地址：<a href="https://ns.hj.io">https://ns.hj.io</a></li>
+        <li>测试包下载地址：<a href="https://public.liacn.com/public/download.html">https://public.liacn.com/public/download.html</a></li>
+        <li>测试方法：<a href="#" id="test-methods">点击查看</a></li>
+        <li>官网地址：<a href="https://ns.io">https://ns.io</a></li>
+    </ul>
+
+    <h2>日志记录：</h2>
+    <h3>V0.8.0(21)版本发布，更新日志：</h3>
+    <ul>
+        <li>优化底层sdk</li>
+        <li>修复magic dns bug</li>
+        <li>修复手动签名bug</li>
+        <li>其它。</li>
+    </ul>
+
+    <div id="test-content"></div>
+
+    <script>
+        document.getElementById('test-methods').addEventListener('click', function(event) {
+            event.preventDefault();
+
+            fetch('./test-doc.md')
+            .then(response => response.text())
+            .then(text => {
+                document.getElementById('test-content').innerHTML = marked(text);
+                document.getElementById('test-content').style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>
